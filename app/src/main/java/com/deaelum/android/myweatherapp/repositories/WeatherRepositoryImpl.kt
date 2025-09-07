@@ -10,13 +10,14 @@ import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Singleton
 class WeatherRepositoryImpl @Inject constructor(
     private val apiService: WeatherApiService,
     private val preferencesManager: PreferencesManager,
-    private val apiKey: String
+    @Named("api_key")private val apiKey: String
 ): WeatherRepository {
     override suspend fun getWeather(cityName: String): Flow<Resources<Weather>> = flow {
         try {
