@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.deaelum.android.myweatherapp.data.Weather
 import com.deaelum.android.myweatherapp.networkComponents.Resources
-import com.deaelum.android.myweatherapp.repositories.GetFavouriteCityUseCase
 import com.deaelum.android.myweatherapp.repositories.GetWeatherUseCase
 import com.deaelum.android.myweatherapp.repositories.SaveFavouriteCityUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
