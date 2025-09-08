@@ -19,7 +19,6 @@ data class HomeState(
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val getFavoriteCityUseCase: GetFavouriteCityUseCase,
-    private val saveFavoriteCityUseCase: SaveFavouriteCityUseCase
 ) : ViewModel() {
     private val _state = MutableStateFlow(HomeState())
     val state = _state.asStateFlow()
@@ -31,13 +30,6 @@ class HomeViewModel @Inject constructor(
     fun onCityNameChanged(cityName: String) {
         _state.value = _state.value.copy(cityName = cityName)
 
-    }
-
-    fun onSearchClick() {
-        val cityName = _state.value.cityName
-        if (cityName.isNotBlank()) {
-            saveFavoriteCity(cityName)
-        }
     }
 
     private fun loadFavCity() {
@@ -54,12 +46,6 @@ class HomeViewModel @Inject constructor(
                 Log.e("HomeViewModel", "Error loading favorite city, ${e.localizedMessage}", e)
             }
 
-        }
-    }
-
-    private fun saveFavoriteCity(cityName: String) {
-        viewModelScope.launch {
-                saveFavoriteCityUseCase(cityName)
         }
     }
 }

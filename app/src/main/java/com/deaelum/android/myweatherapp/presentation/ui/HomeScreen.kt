@@ -121,7 +121,6 @@ fun HomeScreen(
                     Button(
                         onClick = {
                             if (state.cityName.isNotBlank()) {
-                                viewModel.onSearchClick()
                                 onNavigateToWeather(state.cityName)
                             }
                         },
@@ -155,6 +154,28 @@ fun HomeScreen(
                     }
                 }
             }
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            // Info text
+            if (state.cityName.isNotEmpty()) {
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(12.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = WeatherLightBlue.copy(alpha = 0.1f)
+                    )
+                ) {
+                    Text(
+                        text = "💡 Tip: Your favorite city is displayed automatically!",
+                        modifier = Modifier.padding(16.dp),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = WeatherBlue,
+                        textAlign = TextAlign.Center
+                    )
+                }
+            }
+
         }
     }
 

@@ -4,7 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.deaelum.android.myweatherapp.data.Weather
 import com.deaelum.android.myweatherapp.networkComponents.Resources
+import com.deaelum.android.myweatherapp.repositories.GetFavouriteCityUseCase
 import com.deaelum.android.myweatherapp.repositories.GetWeatherUseCase
+import com.deaelum.android.myweatherapp.repositories.SaveFavouriteCityUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -18,9 +20,21 @@ data class WeatherState(
 )
 
 @HiltViewModel
-class WeatherViewModel @Inject constructor(private val getWeatherUseCase: GetWeatherUseCase) : ViewModel() {
+class WeatherViewModel @Inject constructor(
+    private val getWeatherUseCase: GetWeatherUseCase,
+    private val saveFavoriteCityUseCase: SaveFavouriteCityUseCase
+) : ViewModel() {
     private val _state = MutableStateFlow(WeatherState())
     val state = _state.asStateFlow()
+
+    private val _cityName = MutableStateFlow("")
+    val cityName = _cityName.asStateFlow()
+
+    fun onFavIconClick(cityName: String) {
+        if (cityName.isNotBlank()) {
+            saveFavoriteCity(cityName)
+        }
+    }
 
     fun getWeather(cityName: String) {
         viewModelScope.launch {
@@ -39,6 +53,12 @@ class WeatherViewModel @Inject constructor(private val getWeatherUseCase: GetWea
                     }
                 }
             }
+        }
+    }
+
+    private fun saveFavoriteCity(cityName: String) {
+        viewModelScope.launch {
+            saveFavoriteCityUseCase(cityName)
         }
     }
 
