@@ -1,4 +1,4 @@
-package com.deaelum.android.myweatherapp.data
+package com.deaelum.android.myweatherapp.utils
 
 object Config {
     const val BASE_URL = "https://api.openweathermap.org/data/2.5/"

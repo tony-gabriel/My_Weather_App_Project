@@ -1,4 +1,4 @@
-package com.deaelum.android.myweatherapp.data.models
+package com.deaelum.android.myweatherapp.domain.model
 
 data class Main(
     val humidity: Int,

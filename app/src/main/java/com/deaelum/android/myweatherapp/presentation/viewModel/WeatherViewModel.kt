@@ -2,10 +2,10 @@ package com.deaelum.android.myweatherapp.presentation.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.deaelum.android.myweatherapp.data.Weather
-import com.deaelum.android.myweatherapp.networkComponents.Resources
-import com.deaelum.android.myweatherapp.repositories.GetWeatherUseCase
-import com.deaelum.android.myweatherapp.repositories.SaveFavouriteCityUseCase
+import com.deaelum.android.myweatherapp.domain.model.Weather
+import com.deaelum.android.myweatherapp.domain.networkComponents.Resources
+import com.deaelum.android.myweatherapp.domain.usecase.GetWeatherUseCase
+import com.deaelum.android.myweatherapp.domain.usecase.SaveFavouriteCityUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

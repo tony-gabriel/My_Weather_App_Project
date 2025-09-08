@@ -1,4 +1,4 @@
-package com.deaelum.android.myweatherapp.data
+package com.deaelum.android.myweatherapp.domain.model
 
 data class Weather(
     val cityName: String,

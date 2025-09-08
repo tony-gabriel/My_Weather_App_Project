@@ -39,8 +39,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.deaelum.android.myweatherapp.data.Config.getWeatherIcon
-import com.deaelum.android.myweatherapp.data.Weather
+import com.deaelum.android.myweatherapp.utils.Config.getWeatherIcon
+import com.deaelum.android.myweatherapp.domain.model.Weather
 import com.deaelum.android.myweatherapp.presentation.viewModel.WeatherViewModel
 import com.deaelum.android.myweatherapp.ui.theme.WeatherBlue
 import com.deaelum.android.myweatherapp.ui.theme.WeatherLightBlue

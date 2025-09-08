@@ -1,8 +1,8 @@
 package com.deaelum.android.myweatherapp.di
 
 import com.deaelum.android.myweatherapp.BuildConfig
-import com.deaelum.android.myweatherapp.data.Config
-import com.deaelum.android.myweatherapp.networkComponents.WeatherApiService
+import com.deaelum.android.myweatherapp.utils.Config
+import com.deaelum.android.myweatherapp.data.api.WeatherApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

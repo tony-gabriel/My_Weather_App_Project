@@ -1,4 +1,4 @@
-package com.deaelum.android.myweatherapp.networkComponents
+package com.deaelum.android.myweatherapp.domain.networkComponents
 
 sealed class Resources <T>(
     val data: T? = null,

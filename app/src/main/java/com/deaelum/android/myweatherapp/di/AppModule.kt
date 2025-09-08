@@ -1,9 +1,9 @@
 package com.deaelum.android.myweatherapp.di
 
 import android.content.Context
-import com.deaelum.android.myweatherapp.localStorage.PreferencesManager
-import com.deaelum.android.myweatherapp.repositories.WeatherRepository
-import com.deaelum.android.myweatherapp.repositories.WeatherRepositoryImpl
+import com.deaelum.android.myweatherapp.data.localStorage.PreferencesManager
+import com.deaelum.android.myweatherapp.domain.repository.WeatherRepository
+import com.deaelum.android.myweatherapp.data.repository.WeatherRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

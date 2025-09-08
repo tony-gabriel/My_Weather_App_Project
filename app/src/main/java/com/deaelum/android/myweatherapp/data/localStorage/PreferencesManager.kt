@@ -1,4 +1,4 @@
-package com.deaelum.android.myweatherapp.localStorage
+package com.deaelum.android.myweatherapp.data.localStorage
 
 import android.content.Context
 import androidx.datastore.core.DataStore

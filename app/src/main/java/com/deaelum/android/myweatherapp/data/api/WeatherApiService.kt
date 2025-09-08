@@ -1,6 +1,6 @@
-package com.deaelum.android.myweatherapp.networkComponents
+package com.deaelum.android.myweatherapp.data.api
 
-import com.deaelum.android.myweatherapp.data.WeatherResponse
+import com.deaelum.android.myweatherapp.data.models.WeatherResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

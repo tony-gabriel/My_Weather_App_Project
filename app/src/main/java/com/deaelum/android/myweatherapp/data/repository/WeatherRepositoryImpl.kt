@@ -1,10 +1,11 @@
-package com.deaelum.android.myweatherapp.repositories
+package com.deaelum.android.myweatherapp.data.repository
 
-import com.deaelum.android.myweatherapp.data.Weather
-import com.deaelum.android.myweatherapp.data.WeatherResponse
-import com.deaelum.android.myweatherapp.localStorage.PreferencesManager
-import com.deaelum.android.myweatherapp.networkComponents.Resources
-import com.deaelum.android.myweatherapp.networkComponents.WeatherApiService
+import com.deaelum.android.myweatherapp.domain.model.Weather
+import com.deaelum.android.myweatherapp.data.models.WeatherResponse
+import com.deaelum.android.myweatherapp.data.api.WeatherApiService
+import com.deaelum.android.myweatherapp.data.localStorage.PreferencesManager
+import com.deaelum.android.myweatherapp.domain.networkComponents.Resources
+import com.deaelum.android.myweatherapp.domain.repository.WeatherRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -24,20 +25,20 @@ class WeatherRepositoryImpl @Inject constructor(
             emit(Resources.Loading())
             val response = apiService.getWeather(cityName = cityName, apiKey = apiKey)
 
-            if (response.isSuccessful){
+            if (response.isSuccessful) {
                 response.body()?.let {
                     val weather = it.toWeather()
                     emit(Resources.Success(weather))
                 }
-            }else{
+            } else {
                 emit(Resources.Error("No City found"))
             }
 
-        }catch (e: HttpException){
+        } catch (e: HttpException) {
             emit(Resources.Error("Network Error: ${e.localizedMessage}"))
-        }catch (e: IOException){
+        } catch (e: IOException) {
             emit(Resources.Error("Check your internet connection"))
-        }catch(e: Exception){
+        } catch (e: Exception) {
             emit(Resources.Error("An unexpected error occurred"))
         }
     }

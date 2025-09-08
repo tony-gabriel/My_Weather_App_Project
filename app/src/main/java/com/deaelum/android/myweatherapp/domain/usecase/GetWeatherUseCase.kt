@@ -1,7 +1,8 @@
-package com.deaelum.android.myweatherapp.repositories
+package com.deaelum.android.myweatherapp.domain.usecase
 
-import com.deaelum.android.myweatherapp.data.Weather
-import com.deaelum.android.myweatherapp.networkComponents.Resources
+import com.deaelum.android.myweatherapp.domain.model.Weather
+import com.deaelum.android.myweatherapp.domain.repository.WeatherRepository
+import com.deaelum.android.myweatherapp.domain.networkComponents.Resources
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

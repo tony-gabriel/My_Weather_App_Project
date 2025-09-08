@@ -1,4 +1,4 @@
-package com.deaelum.android.myweatherapp.data.models
+package com.deaelum.android.myweatherapp.domain.model
 
 data class Coord(
     val lat: Double,
