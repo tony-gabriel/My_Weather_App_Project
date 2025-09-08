@@ -1,9 +1,18 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("com.google.dagger.hilt.android")
     kotlin("kapt")
+}
+
+val localProps = Properties()
+val localPropFile = project.rootProject.file("local.properties")
+if (localPropFile.exists()) {
+    localProps.load(FileInputStream(localPropFile))
 }
 
 android {
@@ -20,6 +29,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -27,6 +40,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "API_KEY", "${localProps.getProperty("apiKey")}")
+        }
+        debug {
+            buildConfigField("String", "API_KEY", "${localProps.getProperty("apiKey")}")
         }
     }
     compileOptions {

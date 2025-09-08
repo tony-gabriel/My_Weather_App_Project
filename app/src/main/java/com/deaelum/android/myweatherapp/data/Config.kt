@@ -1,8 +1,7 @@
 package com.deaelum.android.myweatherapp.data
 
 object Config {
-    const val BASE_URL = ""
-    const val WEATHER_ICON_URL = ""
+    const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
 
     fun getWeatherIcon(description: String): String {
         return when {

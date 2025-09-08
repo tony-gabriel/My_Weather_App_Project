@@ -1,5 +1,6 @@
 package com.deaelum.android.myweatherapp.di
 
+import com.deaelum.android.myweatherapp.BuildConfig
 import com.deaelum.android.myweatherapp.data.Config
 import com.deaelum.android.myweatherapp.networkComponents.WeatherApiService
 import dagger.Module
@@ -23,13 +24,11 @@ object NetworkModule {
         return OkHttpClient.Builder()
             .addInterceptor(
                 HttpLoggingInterceptor().apply {
-                    level = HttpLoggingInterceptor.Level.BODY
-
-                    /*if (BuildConfig.DEBUG) {  //TODO: Uncomment after configuring build config
+                    level = if (BuildConfig.DEBUG) {
                         HttpLoggingInterceptor.Level.BODY
                     } else {
                         HttpLoggingInterceptor.Level.NONE
-                    }*/
+                    }
                 }
             ).build()
     }
@@ -52,5 +51,5 @@ object NetworkModule {
 
     @Provides
     @Named("api_key")
-    fun provideApiKey(): String = "BuildConfig.WEATHER_API_KEY" //TODO: Parse API key from build config
+    fun provideApiKey(): String = BuildConfig.API_KEY
 }
